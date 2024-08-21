@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  buildx:
+  ci:
     runs-on: ubuntu-latest
     steps:
       -
@@ -21,7 +21,7 @@ jobs:
       - 
         name: Build image
         env:
-          BUILDX_BUILDER: ${{ steps.buildx.outputs.builder }}
+          BUILDX_BUILDER: ${{ steps.buildx.outputs.name }}
         run: |
           docker build --platform linux/amd64,linux/arm64 -t test .
       -
