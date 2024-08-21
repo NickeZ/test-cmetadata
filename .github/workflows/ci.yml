@@ -49,8 +49,8 @@ jobs:
       -
         name: Run with workspace
         run: |
-          docker run --rm --platform linux/amd64 test bash -c 'cd with-workspace; cargo build -v'
+          docker run --rm --platform linux/arm64 test bash -c 'cd with-workspace; cargo build -v'
       -
         name: Run without workspace
         run: |
-          docker run --rm --platform linux/amd64 test bash -c 'cd wo-workspace; cargo build -v'
+          docker run --rm --platform linux/arm64 test bash -c 'cd wo-workspace; cargo build -v'
