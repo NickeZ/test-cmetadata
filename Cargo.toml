@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-num-bigint = { version = "0.4.4", default-features = false }
-panic-halt = "*"
+num-traits = {version="0.2.19",default-features=false}
+panic-halt = "0.2.0"
