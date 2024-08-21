@@ -24,7 +24,7 @@ jobs:
       -
         name: Run
         run: |
-          docker run -rm --platform linux/amd64 test bash -c 'cargo build -v'
+          docker run --rm --platform linux/amd64 test bash -c 'cargo build -v'
 
   arm64:
     runs-on: ubuntu-latest
@@ -45,5 +45,5 @@ jobs:
       -
         name: Run
         run: |
-          docker run -rm --platform linux/arm64 test bash -c 'cargo build -v'
+          docker run --rm --platform linux/arm64 test bash -c 'cargo build -v'
 
