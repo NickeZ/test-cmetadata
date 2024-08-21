@@ -22,13 +22,9 @@ jobs:
         run: |
           docker buildx build --load --platform linux/amd64 -t test .
       -
-        name: Run with workspace
+        name: Run
         run: |
-          docker run --rm --platform linux/amd64 test bash -c 'cd with-workspace; cargo build -v'
-      -
-        name: Run without workspace
-        run: |
-          docker run --rm --platform linux/amd64 test bash -c 'cd wo-workspace; cargo build -v'
+          docker run --rm -v .:/workdir --workdir=/workdir --platform linux/amd64 test bash -c 'cargo build -v'
 
   arm64:
     runs-on: ubuntu-latest
@@ -47,10 +43,6 @@ jobs:
         run: |
           docker buildx build --load --platform linux/arm64 -t test .
       -
-        name: Run with workspace
+        name: Run
         run: |
-          docker run --rm --platform linux/arm64 test bash -c 'cd with-workspace; cargo build -v'
-      -
-        name: Run without workspace
-        run: |
-          docker run --rm --platform linux/arm64 test bash -c 'cd wo-workspace; cargo build -v'
+          docker run --rm -v .:/workdir --workdir=/workdir --platform linux/arm64 test bash -c 'cargo build -v'
